@@ -3,10 +3,19 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Untuk tampilan yang lebih baik pada visualisasi
 sns.set(style="whitegrid")
 
-# GATHERING DATA: Load necessary datasets
+st.write("## Defining Business Question")
+st.write("""
+- Question 1
+1. What is the relationship between customer location and order delivery time?
+- Question 2
+2. Which product categories generate the highest revenue, and how does customer satisfaction vary across those categories?
+- Question 3
+3. How does seller location influence sales performance, and which states contribute the most to total sales?
+""")
+
+# GATHERING DATA
 @st.cache_data
 def load_data():
     customers = pd.read_csv('data/customers_dataset.csv')
@@ -29,9 +38,35 @@ st.write("### Data Information:")
 st.write("Customers Dataset:")
 st.write(customers.info())
 st.dataframe(customers)
+st.write("geolocation Dataset:")
+st.write(geolocation.info())
+st.dataframe(geolocation)
+st.write("Order Item Dataset:")
+st.write(order_items.info())
+st.dataframe(order_items)
+st.write("Order Payments Dataset:")
+st.write(order_payments.info())
+st.dataframe(order_payments)
+st.write("Order Reviews Dataset:")
+st.write(order_reviews.info())
+st.dataframe(order_reviews)
 st.write("Orders Dataset:")
 st.write(orders.info())
 st.dataframe(orders)
+st.write("Product Category Translation Dataset:")
+st.write(product_category_translation.info())
+st.dataframe(product_category_translation)
+st.write("Products Dataset:")
+st.write(products.info())
+st.dataframe(products)
+st.write("sellers Dataset:")
+st.write(sellers.info())
+st.dataframe(sellers)
+
+st.write("""
+**Insight:**
+.info() function reveals that some datasets have missing values, particularly in the delivery date column of the orders dataset. This indicates a need for data cleaning before proceeding with further analysis.
+""")
 
 # CLEANING DATA
 orders['order_purchase_timestamp'] = pd.to_datetime(orders['order_purchase_timestamp'])
@@ -117,10 +152,18 @@ ax.set_ylabel('Total Sales')
 ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
 st.pyplot(fig)
 
+st.write("""
+**Insight:**
+.info() function reveals that some datasets have missing values, particularly in the delivery date column of the orders dataset. This indicates a need for data cleaning before proceeding with further analysis.
+""")
+
 # Conclusion
 st.write("### Conclusion:")
 st.write("""
-1. Some customer states show significantly higher delivery times on average, which could be due to geographic factors.
-2. Certain product categories generate higher revenue but have lower customer satisfaction, providing insights for improving product quality.
-3. Sellers from specific states contribute more to total sales, which could be useful for optimizing seller partnerships.
+Conclusion Question 1:
+1. Customers in certain states experience significantly longer delivery times compared to others. Geographic factors, such as distance from distribution centers or the availability of logistics infrastructure in those regions, are likely the main contributors to this variation. By understanding these patterns, businesses can optimize their delivery strategies, such as improving logistics routes or opening new distribution centers, to reduce delivery times in regions with higher averages.
+Conclusion Question 2:
+2. Certain product categories, while generating the highest revenue, have lower customer satisfaction compared to others. This indicates that despite high sales, there may be quality or service issues affecting customer satisfaction in those categories. Businesses can use this insight to focus on improving product or service quality in these high-revenue categories to boost customer satisfaction while maintaining strong sales.
+Conclusion Question 3:
+3. Sellers from certain states contribute more significantly to total sales compared to others. This suggests that geographic factors, such as proximity to distribution hubs or better logistics infrastructure, may influence sales performance. This information can be used to optimize partnerships with sellers in high-performing states, while also exploring opportunities to improve sales in states with lower contributions.
 """)
