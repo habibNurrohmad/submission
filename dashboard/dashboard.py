@@ -5,16 +5,6 @@ import seaborn as sns
 
 sns.set(style="whitegrid")
 
-st.write("## Defining Business Question")
-st.write("""
-- Question 1
-1. What is the relationship between customer location and order delivery time?
-- Question 2
-2. Which product categories generate the highest revenue, and how does customer satisfaction vary across those categories?
-- Question 3
-3. How does seller location influence sales performance, and which states contribute the most to total sales?
-""")
-
 # GATHERING DATA
 @st.cache_data
 def load_data():
@@ -34,6 +24,17 @@ customers, geolocation, order_items, order_payments, order_reviews, orders, prod
 
 # ASSESSING DATA
 st.title("E-Commerce Dataset Analysis")
+
+st.write("## Defining Business Question")
+st.write("""
+- Question 1
+1. What is the relationship between customer location and order delivery time?
+- Question 2
+2. Which product categories generate the highest revenue, and how does customer satisfaction vary across those categories?
+- Question 3
+3. How does seller location influence sales performance, and which states contribute the most to total sales?
+""")
+
 st.write("### Data Information:")
 st.write("Customers Dataset:")
 st.write(customers.info())
