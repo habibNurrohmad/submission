@@ -36,38 +36,33 @@ st.write("""
 """)
 
 st.write("### Data Information:")
-st.write("Customers Dataset:")
+st.write("**Customers Dataset:**")
 st.write(customers.info())
 st.dataframe(customers)
-st.write("geolocation Dataset:")
+st.write("**geolocation Dataset:**")
 st.write(geolocation.info())
 st.dataframe(geolocation)
-st.write("Order Item Dataset:")
+st.write("**Order Item Dataset:**")
 st.write(order_items.info())
 st.dataframe(order_items)
-st.write("Order Payments Dataset:")
+st.write("**Order Payments Dataset:**")
 st.write(order_payments.info())
 st.dataframe(order_payments)
-st.write("Order Reviews Dataset:")
+st.write("**Order Reviews Dataset:**")
 st.write(order_reviews.info())
 st.dataframe(order_reviews)
-st.write("Orders Dataset:")
+st.write("**Orders Dataset:**")
 st.write(orders.info())
 st.dataframe(orders)
-st.write("Product Category Translation Dataset:")
+st.write("**Product Category Translation Dataset:**")
 st.write(product_category_translation.info())
 st.dataframe(product_category_translation)
-st.write("Products Dataset:")
+st.write("**Products Dataset:**")
 st.write(products.info())
 st.dataframe(products)
-st.write("sellers Dataset:")
+st.write("**Sellers Dataset:**")
 st.write(sellers.info())
 st.dataframe(sellers)
-
-st.write("""
-**Insight:**
-.info() function reveals that some datasets have missing values, particularly in the delivery date column of the orders dataset. This indicates a need for data cleaning before proceeding with further analysis.
-""")
 
 # CLEANING DATA
 orders['order_purchase_timestamp'] = pd.to_datetime(orders['order_purchase_timestamp'])
@@ -155,8 +150,11 @@ st.pyplot(fig)
 
 st.write("""
 **Insight:**
-.info() function reveals that some datasets have missing values, particularly in the delivery date column of the orders dataset. This indicates a need for data cleaning before proceeding with further analysis.
-""")
+- A bar plot visualizing average delivery time by state shows significant variations, likely influenced by geographical or logistical factors.
+- Geolocation distribution visualization helps illustrate the geographical spread of customers.
+- A bar plot of revenue by product category highlights which categories have the highest sales.
+- A separate visualization of customer satisfaction by product category provides insight into areas where product quality might need improvement.
+- Seller performance by state is visualized, showing which states contribute most to total sales, giving insights into regional seller activity.""")
 
 # Conclusion
 st.write("### Conclusion:")
