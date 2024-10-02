@@ -78,6 +78,7 @@ order_product_reviews = pd.merge(order_product_reviews, order_reviews[['order_id
 # EXPLORATION AND VISUALIZATION
 st.write("### Question 1: Relationship between Customer Location and Delivery Time")
 
+# Question 1
 # Step 1: Calculate delivery time in days
 customer_orders['delivery_time'] = (customer_orders['order_delivered_customer_date'] - customer_orders['order_purchase_timestamp']).dt.days
 location_delivery = customer_orders.groupby(['customer_state'])['delivery_time'].mean().reset_index()
@@ -100,7 +101,7 @@ ax.set_xlabel('Longitude')
 ax.set_ylabel('Latitude')
 st.pyplot(fig)
 
-# Question 2: Revenue and Satisfaction by Product Category
+# Question 2
 st.write("### Question 2: Revenue and Satisfaction by Product Category")
 
 # Step 1: Calculate revenue by product category
@@ -127,7 +128,7 @@ ax.set_ylabel('Average Review Score')
 ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
 st.pyplot(fig)
 
-# Question 3: Seller Performance by State
+# Question 3
 st.write("### Question 3: Seller Performance by State")
 
 # Step 1: Merge seller information with order items
