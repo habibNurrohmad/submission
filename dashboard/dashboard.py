@@ -9,15 +9,15 @@ sns.set(style="whitegrid")
 # GATHERING DATA: Load necessary datasets
 @st.cache_data
 def load_data():
-    customers = pd.read_csv('B:/Code Project/Bangkit/E-Commerce Public Dataset/data/customers_dataset.csv')
-    geolocation = pd.read_csv('B:/Code Project/Bangkit/E-Commerce Public Dataset/data/geolocation_dataset.csv')
-    order_items = pd.read_csv('B:/Code Project/Bangkit/E-Commerce Public Dataset/data/order_items_dataset.csv')
-    order_payments = pd.read_csv('B:/Code Project/Bangkit/E-Commerce Public Dataset/data/order_payments_dataset.csv')
-    order_reviews = pd.read_csv('B:/Code Project/Bangkit/E-Commerce Public Dataset/data/order_reviews_dataset.csv')
-    orders = pd.read_csv('B:/Code Project/Bangkit/E-Commerce Public Dataset/data/orders_dataset.csv')
-    product_category_translation = pd.read_csv('B:/Code Project/Bangkit/E-Commerce Public Dataset/data/product_category_name_translation.csv')
-    products = pd.read_csv('B:/Code Project/Bangkit/E-Commerce Public Dataset/data/products_dataset.csv')
-    sellers = pd.read_csv('B:/Code Project/Bangkit/E-Commerce Public Dataset/data/sellers_dataset.csv')
+    customers = pd.read_csv('../data/customers_dataset.csv')
+    geolocation = pd.read_csv('../data/geolocation_dataset.csv')
+    order_items = pd.read_csv('../data/order_items_dataset.csv')
+    order_payments = pd.read_csv('../data/order_payments_dataset.csv')
+    order_reviews = pd.read_csv('../data/order_reviews_dataset.csv')
+    orders = pd.read_csv('../data/orders_dataset.csv')
+    product_category_translation = pd.read_csv('../data/product_category_name_translation.csv')
+    products = pd.read_csv('../data/products_dataset.csv')
+    sellers = pd.read_csv('../data/sellers_dataset.csv')
     
     return customers, geolocation, order_items, order_payments, order_reviews, orders, product_category_translation, products, sellers
 
